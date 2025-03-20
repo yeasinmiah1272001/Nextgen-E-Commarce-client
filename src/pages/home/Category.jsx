@@ -1,9 +1,9 @@
 import React from "react";
 import Container from "../../components/Container";
-import img1 from "../../assets/category/category1.png";
-import img2 from "../../assets/category/category2.png";
-import img3 from "../../assets/category/category3.png";
-import img4 from "../../assets/category/category4.png";
+import img1 from "../../assets/category/category1.webp";
+import img2 from "../../assets/category/category2.webp";
+import img3 from "../../assets/category/category3.webp";
+import img4 from "../../assets/category/category4.webp";
 
 const Category = () => {
   return (
