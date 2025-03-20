@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import banner1 from "../../assets/banner/banner1.png";
 import banner2 from "../../assets/banner/banner2.jpg";
+import banner3 from "../../assets/banner/banner3.jpg";
+import banner from "../../assets/banner/banner.jpg";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -48,8 +51,28 @@ const Banner = () => {
           <Slider ref={sliderRef} {...settings}>
             <div className="relative">
               <img
-                className="w-full h-[300px] md:h-[500px] object-cover rounded-lg shadow-lg"
+                className="w-full h-[300px] md:h-[500px] object-cover rounded-lg"
                 src={banner1}
+                alt="Banner 1"
+              />
+              <Container className="absolute inset-0 flex items-center justify-start px-4 md:px-12 lg:px-20">
+                <div className="text-black max-w-lg space-y-2 md:space-y-4">
+                  <h2 className="text-lg md:text-2xl lg:text-4xl font-bold drop-shadow-lg">
+                    Welcome to Our Store
+                  </h2>
+                  <p className="text-xs md:text-sm lg:text-lg">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  </p>
+                  <button className="bg-gray-100 text-gray-800 py-1 px-3 md:py-2 md:px-4 rounded-lg hover:bg-gray-200 transition">
+                    Order Now
+                  </button>
+                </div>
+              </Container>
+            </div>
+            <div className="relative">
+              <img
+                className="w-full h-[300px] md:h-[500px] object-cover rounded-lg"
+                src={banner}
                 alt="Banner 1"
               />
               <Container className="absolute inset-0 flex items-center justify-start px-4 md:px-12 lg:px-20">
@@ -70,6 +93,26 @@ const Banner = () => {
               <img
                 className="w-full h-[300px] md:h-[500px] object-cover rounded-lg shadow-lg"
                 src={banner2}
+                alt="Banner 2"
+              />
+              <Container className="absolute inset-0 flex items-center justify-start px-4 md:px-12 lg:px-20">
+                <div className="text-black max-w-lg space-y-2 md:space-y-4">
+                  <h2 className="text-lg md:text-2xl lg:text-4xl font-bold drop-shadow-lg">
+                    Welcome to Our Store
+                  </h2>
+                  <p className="text-xs md:text-sm lg:text-lg">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  </p>
+                  <button className="bg-gray-100 text-gray-800 py-1 px-3 md:py-2 md:px-4 rounded-lg hover:bg-gray-200 transition">
+                    Order Now
+                  </button>
+                </div>
+              </Container>
+            </div>
+            <div className="relative">
+              <img
+                className="w-full h-[300px] md:h-[500px] object-cover rounded-lg shadow-lg"
+                src={banner3}
                 alt="Banner 2"
               />
               <Container className="absolute inset-0 flex items-center justify-start px-4 md:px-12 lg:px-20">
