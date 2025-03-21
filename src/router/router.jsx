@@ -9,6 +9,10 @@ import UserHome from "../pages/dashboard/users/UserHome";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import Profile from "../shared/Profile";
+import AdminHome from "../pages/dashboard/admin/AdminHome";
+import ManageUser from "../pages/dashboard/admin/ManageUser";
+import AddProduct from "../pages/dashboard/admin/AddProduct";
+import ManageOrder from "../pages/dashboard/admin/ManageOrder";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +48,23 @@ export const router = createBrowserRouter([
       {
         path: "profile",
         element: <Profile />,
+      },
+      // admin related
+      {
+        path: "adminhome",
+        element: <AdminHome />,
+      },
+      {
+        path: "manageuser",
+        element: <ManageUser />,
+      },
+      {
+        path: "addproduct",
+        element: <AddProduct />,
+      },
+      {
+        path: "manageorder",
+        element: <ManageOrder />,
       },
     ],
   },

@@ -8,7 +8,7 @@ const DashboardLayout = () => {
       <Sidebar />
       <div className="flex-1  h-screen">
         <div className="w-full min-h-screen">
-          <div className="bg-[#AADEEE] h-screen">
+          <div className="bg-[#AADEEE] h-screen p-6">
             <Outlet />
           </div>
         </div>

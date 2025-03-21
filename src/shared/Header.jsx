@@ -7,11 +7,9 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const navigate = useNavigate();
   const { user, logout } = useContext(AuthContext);
   const handleLogout = () => {
     logout();
-    navigate("/login");
   };
 
   const navlink = [
@@ -50,9 +48,9 @@ const Header = () => {
           ))}
           {user ? (
             <>
-              <p className="cursor-pointer" onClick={handleLogout}>
+              <button className="cursor-pointer" onClick={handleLogout}>
                 Logout
-              </p>
+              </button>
             </>
           ) : (
             <>

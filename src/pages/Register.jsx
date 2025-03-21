@@ -32,7 +32,7 @@ const Register = () => {
       await createUser(email, password);
       await updateUserProfile(name, imageUrl);
       toast.success("User registered successfully");
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.error("Error during registration:", error.message);
       toast.error(error.message);
@@ -43,6 +43,7 @@ const Register = () => {
     try {
       await signInWithGoogle();
       toast.success("Google Login success");
+      navigate(`/`);
     } catch (error) {
       console.error("Error during Google login:", error.message);
       toast.error(error.message);

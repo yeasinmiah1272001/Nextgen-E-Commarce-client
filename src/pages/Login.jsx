@@ -30,6 +30,7 @@ const Login = () => {
     try {
       await signInWithGoogle();
       toast.success("Google Login successful");
+      navigate(`/`);
     } catch (error) {
       console.error("Error during Google sign-in:", error.message);
       toast.error(error.message);

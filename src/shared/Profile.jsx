@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Container from "../components/Container";
+import useRole from "../hooks/useRole";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  const [role] = useRole();
   return (
     <Container>
       <div className="flex justify-center items-center min-h-screen">
@@ -22,7 +24,7 @@ const Profile = () => {
             {user?.email || "your.email@example.com"}
           </p>
           <button className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-600 transition-all">
-            Edit Profile
+            Role: {role}
           </button>
         </div>
       </div>

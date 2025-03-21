@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import UserMenu from "./UserMenu";
 import SharedMenu from "./SharedMenu";
+import useRole from "../../../hooks/useRole";
+import AdminMenu from "./AdminMenu";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [role] = useRole();
+  // console.log(role);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -44,8 +48,9 @@ const Sidebar = () => {
       >
         {/* UserMenu */}
         <nav className="p-4">
-          <h2 className="text-2xl font-bold mb-6">Dashboard</h2>
-          <UserMenu />
+          <h2 className="text-2xl font-bold mb-6">Dashboard ({role})</h2>
+          {role === "user" && <UserMenu />}
+          {role === "admin" && <AdminMenu />}
         </nav>
         <hr />
         {/* SharedMenu */}
