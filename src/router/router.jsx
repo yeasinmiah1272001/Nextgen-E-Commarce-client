@@ -6,6 +6,9 @@ import Home from "../pages/home/Home";
 import Shop from "../pages/shop/Shop";
 import DashboardLayout from "../layout/DashboardLayout";
 import UserHome from "../pages/dashboard/users/UserHome";
+import Register from "../pages/Register";
+import Login from "../pages/Login";
+import Profile from "../shared/Profile";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +23,14 @@ export const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
   },
   {
@@ -29,6 +40,10 @@ export const router = createBrowserRouter([
       {
         path: "userhome",
         element: <UserHome />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

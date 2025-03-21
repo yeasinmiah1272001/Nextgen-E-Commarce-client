@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Container from "../components/Container";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import NavIcon from "../components/NavIcon";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
+  const { user, logout } = useContext(AuthContext);
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   const navlink = [
     { title: "Home", path: "/" },
@@ -41,6 +48,17 @@ const Header = () => {
               {nav.title}
             </NavLink>
           ))}
+          {user ? (
+            <>
+              <p className="cursor-pointer" onClick={handleLogout}>
+                Logout
+              </p>
+            </>
+          ) : (
+            <>
+              <Link to={"/login"}>Login</Link>
+            </>
+          )}
         </div>
         {/* icon */}
         <NavIcon />
