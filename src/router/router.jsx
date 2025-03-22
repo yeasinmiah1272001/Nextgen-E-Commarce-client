@@ -13,6 +13,7 @@ import AdminHome from "../pages/dashboard/admin/AdminHome";
 import ManageUser from "../pages/dashboard/admin/ManageUser";
 import AddProduct from "../pages/dashboard/admin/AddProduct";
 import ManageOrder from "../pages/dashboard/admin/ManageOrder";
+import AllProduct from "../pages/dashboard/admin/AllProduct";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -65,6 +66,10 @@ export const router = createBrowserRouter([
       {
         path: "manageorder",
         element: <ManageOrder />,
+      },
+      {
+        path: "allproduct",
+        element: <AllProduct />,
       },
     ],
   },
