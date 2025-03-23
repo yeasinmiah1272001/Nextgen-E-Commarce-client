@@ -18,15 +18,13 @@ const ProductCard = ({ product }) => {
 
   return (
     <div
-      className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:shadow-emerald-950"
+      className="group relative  overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:shadow-emerald-950"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      style={{ maxWidth: "280px" }}
     >
       <div className="relative overflow-hidden pt-[85%]">
         {/* Product Image */}
         <Link to={`/details/${product._id}`}>
-          {" "}
           <img
             src={product.images[0]}
             alt={"image"}
@@ -50,39 +48,39 @@ const ProductCard = ({ product }) => {
         {/* Action Buttons - Slide in from right */}
         <div className="absolute right-0 top-1/2 flex flex-col gap-2 transition-all duration-300 overflow-hidden">
           <button
-            className={`flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-sm transition-all duration-300 hover:bg-white transform ${
+            className={`flex h-6 w-6 items-center justify-center rounded-full bg-white/90 shadow-sm transition-all duration-300 hover:bg-white transform ${
               isHovered ? "translate-x-0 mr-2" : "translate-x-full"
             }`}
           >
-            <Heart className="h-4 w-4 text-gray-700" />
+            <Heart className="h-3.5 w-3.5 text-gray-700" />
           </button>
           <button
-            className={`flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-sm transition-all duration-300 hover:bg-white transform ${
+            className={`flex h-6 w-6 items-center justify-center rounded-full bg-white/90 shadow-sm transition-all duration-300 hover:bg-white transform ${
               isHovered ? "translate-x-0 mr-2 delay-75" : "translate-x-full"
             }`}
           >
-            <ShoppingBag className="h-4 w-4 text-gray-700" />
+            <ShoppingBag className="h-3.5 w-3.5 text-gray-700" />
           </button>
           <button
-            className={`flex h-7 w-7 items-center justify-center rounded-full bg-white/90 shadow-sm transition-all duration-300 hover:bg-white transform ${
+            className={`flex h-6 w-6 items-center justify-center rounded-full bg-white/90 shadow-sm transition-all duration-300 hover:bg-white transform ${
               isHovered ? "translate-x-0 mr-2 delay-150" : "translate-x-full"
             }`}
           >
-            <Edit className="h-4 w-4 text-gray-700" />
+            <Edit className="h-3.5 w-3.5 text-gray-700" />
           </button>
         </div>
       </div>
 
       {/* Product Details */}
-      <div className="flex flex-1 flex-col p-4">
+      <div className="flex flex-1 flex-col p-3">
         <div className="mb-0.5 text-xs text-gray-500">
           {product.productCategory}
         </div>
-        <h3 className="mb-1 line-clamp-2 text-sm font-medium text-gray-900 min-h-[2.5rem]">
+        <h3 className="mb-1 line-clamp-2 text-xs font-medium text-gray-900 min-h-[2rem]">
           {product.productName.slice(0, 20)}
         </h3>
         <div className="mt-auto flex items-center gap-1.5">
-          <span className="font-semibold text-gray-900">
+          <span className="font-semibold text-gray-900 text-sm">
             ${product.productPrice}
           </span>
           {product.productPrice && (
@@ -94,7 +92,9 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Add to Cart Button */}
-      <AddToCartBtn />
+      <button className="mt-2 w-full rounded bg-primary py-1.5 text-xs text-white hover:bg-primary-dark transition-all">
+        Add to Cart
+      </button>
     </div>
   );
 };

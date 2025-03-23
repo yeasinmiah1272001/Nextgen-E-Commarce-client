@@ -2,55 +2,29 @@ import React, { useState } from "react";
 import Container from "../../components/Container";
 import { FaShoppingCart, FaCheck, FaTruck, FaCreditCard } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
+import ProductDetailsImg from "../../components/ProductDetailsImg";
+import Review from "../../components/Review";
 
 const ProductDetails = () => {
   const [selectedImage, setSelectedImage] = useState(0);
-
-  // Handle thumbnail click
+  const product = useLoaderData();
   const handleThumbnailClick = (index) => {
     setSelectedImage(index);
   };
-  const product = useLoaderData();
 
   return (
     <Container>
       <div className="flex flex-col lg:flex-row gap-10 p-4 mx-auto justify-center">
         {/* Image Section */}
-        <div className="lg:w-1/4">
-          <img
-            src={product.images[selectedImage] || "/placeholder.svg"}
-            alt={product?.productName || "Product Image"}
-            className="w-[700px]   p-6 rounded-lg shadow-lg object-cover aspect-square"
-          />
-          <div className="flex gap-2 mt-4 flex-wrap">
-            {product?.images?.map((img, index) => (
-              <img
-                key={index}
-                src={img || "/placeholder.svg"}
-                alt={`Gallery ${index}`}
-                className={`w-16 h-16 object-cover rounded-md cursor-pointer hover:opacity-75 transition-all duration-200 ${
-                  selectedImage === index
-                    ? "border-2 border-pink-500 scale-105"
-                    : "opacity-80"
-                }`}
-                onClick={() => handleThumbnailClick(index)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    handleThumbnailClick(index);
-                  }
-                }}
-                tabIndex={0}
-                role="button"
-                aria-label={`View product image ${index + 1}`}
-                aria-current={selectedImage === index}
-              />
-            ))}
-          </div>
-        </div>
+        <ProductDetailsImg
+          product={product}
+          handleThumbnailClick={handleThumbnailClick}
+          selectedImage={selectedImage}
+        />
 
         {/* Details Section */}
         <div className="lg:w-1/2">
-          <h1 className="text-2xl font-bold mb-2">
+          <h1 className="text-2xl font-bold mb-2 tracking-wide">
             {product?.productName || "Product Name"}
           </h1>
 
@@ -74,7 +48,7 @@ const ProductDetails = () => {
             </span>
           </div>
           <div className="flex items-center gap-4 mb-6">
-            <span className="text-sm text-green-600 flex items-center gap-1">
+            <span className="text-sm text-black flex items-center gap-1">
               Category: {product.productCategory}
             </span>
           </div>
@@ -95,6 +69,8 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      {/* comment or review */}
+      <Review />
     </Container>
   );
 };
