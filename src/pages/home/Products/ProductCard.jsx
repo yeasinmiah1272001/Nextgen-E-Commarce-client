@@ -92,9 +92,7 @@ const ProductCard = ({ product }) => {
       </div>
 
       {/* Add to Cart Button */}
-      <button className="mt-2 w-full rounded bg-primary py-1.5 text-xs text-white hover:bg-primary-dark transition-all">
-        Add to Cart
-      </button>
+      <AddToCartBtn />
     </div>
   );
 };
