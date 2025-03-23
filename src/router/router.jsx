@@ -14,6 +14,7 @@ import ManageUser from "../pages/dashboard/admin/ManageUser";
 import AddProduct from "../pages/dashboard/admin/AddProduct";
 import ManageOrder from "../pages/dashboard/admin/ManageOrder";
 import AllProduct from "../pages/dashboard/admin/AllProduct";
+import ProductDetaiils from "../pages/home/ProductDetaiils";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,12 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/details/:id",
+        element: <ProductDetaiils />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/product/details/${params.id}`),
       },
     ],
   },
