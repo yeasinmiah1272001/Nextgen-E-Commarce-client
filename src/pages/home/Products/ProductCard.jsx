@@ -76,18 +76,11 @@ const ProductCard = ({ product }) => {
         <div className="mb-0.5 text-xs text-gray-500">
           {product.productCategory}
         </div>
-        <h3 className="mb-1 line-clamp-2 text-xs font-medium text-gray-900 min-h-[2rem]">
+        <h3 className=" line-clamp-2 text-xs font-medium text-gray-900 min-h-[2rem]">
           {product.productName.slice(0, 20)}
         </h3>
-        <div className="mt-auto flex items-center gap-1.5">
-          <span className="font-semibold text-gray-900 text-sm">
-            ${product.productPrice}
-          </span>
-          {product.productPrice && (
-            <span className="text-xs text-gray-500 line-through">
-              ${product.productPrice}
-            </span>
-          )}
+        <div className=" text-xs text-gray-500">
+          {product.productDescription.slice(0, 70)}
         </div>
       </div>
 

@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 const NavIcon = () => {
   const { user } = useContext(AuthContext);
   const selector = useSelector((state) => state.nextGen.cart);
+  console.log(selector);
 
   return (
     <div className="flex items-center gap-6">
@@ -18,7 +19,7 @@ const NavIcon = () => {
           className="text-gray-700 group-hover:text-blue-500 transition duration-300"
         />
       </div>
-      <div className="flex relative group cursor-pointer">
+      <Link to={"/carts"} className="flex relative group cursor-pointer">
         <BsBag
           size={27}
           className="text-gray-700 group-hover:text-blue-500 transition duration-300"
@@ -26,7 +27,7 @@ const NavIcon = () => {
         <span className="absolute -top-2 -right-2 text-xs w-5 h-5 flex justify-center items-center bg-red-600 text-white rounded-full">
           {selector.length ? selector.length : "0"}
         </span>
-      </div>
+      </Link>
       <div className="flex relative group cursor-pointer">
         <IoIosHeartEmpty
           size={27}

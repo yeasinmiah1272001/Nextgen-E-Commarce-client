@@ -2,10 +2,25 @@ import { ShoppingCart } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/nextGenSlice";
+import {
+  addToCart,
+  decressQuantity,
+  incressQuantity,
+} from "../../redux/nextGenSlice";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const AddToCartBtn = ({ product }) => {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.nextGen.cart);
+
+  const [existingProduct, setExistingProduct] = useState(null);
+
+  useEffect(() => {
+    if (product) {
+      const availableProduct = cart.find((item) => item._id === product._id);
+      setExistingProduct(availableProduct);
+    }
+  }, [product, cart]);
 
   const handleAddToCart = () => {
     if (product) {
@@ -20,34 +35,62 @@ const AddToCartBtn = ({ product }) => {
     }
   };
 
-  const selector = useSelector((state) => state.nextGen.cart);
-  const [existingProduct, setExistingProduct] = useState(null);
-  useEffect(() => {
+  const handleIncress = () => {
     if (product) {
-      const availableProduct = selector.find(
-        (item) => item._id === product._id
-      );
-      setExistingProduct(availableProduct);
+      dispatch(incressQuantity(product._id));
+      toast.success("incress success");
     }
-  }, [product, selector]);
+  };
+  const handleDecress = () => {
+    if (product && existingProduct.quantity > 1) {
+      dispatch(decressQuantity(product._id));
+      toast.success("decress success");
+    }
+  };
 
   return (
-    <div>
-      <div className="bg-[#F35279] px-2 mb-2 mx-2 rounded-full">
+    <div className="p-2 rounded-lg shadow-sm bg-white">
+      {existingProduct ? (
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-between items-center">
+            <h1 className="font-semibold text-gray-700">Quantity</h1>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={handleDecress}
+                className="p-1 rounded bg-gray-200 hover:bg-gray-300"
+              >
+                <FaMinus className="text-gray-700" />
+              </button>
+              <span className="font-medium text-gray-700">
+                {existingProduct.quantity}
+              </span>
+
+              <button
+                onClick={handleIncress}
+                className="p-1 rounded bg-gray-200 hover:bg-gray-300"
+              >
+                <FaPlus className="text-gray-700" />
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : (
         <button
           onClick={handleAddToCart}
-          className="flex w-full items-center justify-center gap-1.5 rounded-md bg-primary py-1.5 text-xs font-medium text-white transition-colors hover:bg-primary/90"
+          className="flex w-full items-center justify-center gap-1.5 rounded-md bg-[#F35279] py-2 text-sm font-medium text-white transition-all hover:bg-[#e0436b]"
         >
-          <ShoppingCart className="h-3.5 w-3.5" />
+          <ShoppingCart className="h-4 w-4" />
           Add to Cart
         </button>
-      </div>
-      <hr />
-      <div className="flex items-center justify-between p-2">
-        <p>Subtotal</p>
+      )}
+
+      <hr className="my-4 border-gray-300" />
+
+      <div className="flex items-center justify-between">
+        <p className="font-medium text-gray-600">Subtotal</p>
         <div className="flex items-center gap-2">
-          <p>678 $</p>
-          <p>890 $</p>
+          <p className="font-semibold text-gray-800">678 $</p>
+          <p className="text-sm text-gray-500 line-through">890 $</p>
         </div>
       </div>
     </div>

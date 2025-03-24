@@ -44,9 +44,9 @@ const Shop = () => {
 
   return (
     <Container>
-      <div className="grid grid-cols-6 grid-rows-8 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-6 md:grid-rows-8 gap-6">
         {/* Filtering Section */}
-        <div className="col-span-2 row-span-8 bg-gray-50 p-6 rounded-lg shadow-md">
+        <div className="hidden md:block md:col-span-2 md:row-span-8 bg-gray-50 p-4 md:p-6 rounded-lg shadow-md">
           <div className="space-y-6">
             {/* Filter by Category */}
             <div>
@@ -82,7 +82,7 @@ const Shop = () => {
               <h2 className="text-lg font-semibold text-gray-700 mb-4">
                 Filter by Brand
               </h2>
-              <div className="space-y-1">
+              <div className="space-y-3">
                 {brands.map((brand, index) => (
                   <div
                     className="flex items-center gap-4 hover:bg-gray-100 p-2 rounded transition"
@@ -109,8 +109,8 @@ const Shop = () => {
         </div>
 
         {/* Products Section */}
-        <div className="col-span-4 row-span-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="md:col-span-4 md:row-span-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {filteredProducts.map((product) => (
               <ShopingCard key={product._id} product={product} />
             ))}

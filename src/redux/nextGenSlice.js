@@ -19,10 +19,27 @@ export const counterSlice = createSlice({
         state.cart.push({ ...action.payload, quantity: 1 });
       }
     },
+    incressQuantity: (state, action) => {
+      const existingProduct = state.cart.find(
+        (item) => item._id === action.payload
+      );
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      }
+    },
+    decressQuantity: (state, action) => {
+      const existingProduct = state.cart.find(
+        (item) => item._id === action.payload
+      );
+      if (existingProduct) {
+        existingProduct.quantity -= 1;
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = counterSlice.actions;
+export const { addToCart, incressQuantity, decressQuantity } =
+  counterSlice.actions;
 
 export default counterSlice.reducer;

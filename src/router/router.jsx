@@ -15,6 +15,7 @@ import AddProduct from "../pages/dashboard/admin/AddProduct";
 import ManageOrder from "../pages/dashboard/admin/ManageOrder";
 import AllProduct from "../pages/dashboard/admin/AllProduct";
 import ProductDetaiils from "../pages/home/ProductDetaiils";
+import ShoppingCarts from "../pages/ShoppingCarts";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
         element: <ProductDetaiils />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/details/${params.id}`),
+      },
+      {
+        path: "/carts",
+        element: <ShoppingCarts />,
       },
     ],
   },
