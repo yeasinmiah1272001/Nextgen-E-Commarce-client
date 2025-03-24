@@ -4,6 +4,7 @@ import { FaShoppingCart, FaCheck, FaTruck, FaCreditCard } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import ProductDetailsImg from "../../components/ProductDetailsImg";
 import Review from "../../components/Review";
+import AddToCartBtn from "../../components/button/AddToCartBtn";
 
 const ProductDetails = () => {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -53,9 +54,9 @@ const ProductDetails = () => {
             </span>
           </div>
 
-          <button className="flex items-center gap-2 px-6 py-2 bg-pink-500 text-white rounded-lg shadow hover:bg-pink-600 transition">
-            <FaShoppingCart /> Add to Cart
-          </button>
+          <div className="w-1/2">
+            <AddToCartBtn product={product} />
+          </div>
 
           <div className="mt-6 flex gap-4">
             <div className="flex items-center gap-2">

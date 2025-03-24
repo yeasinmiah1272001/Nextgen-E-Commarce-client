@@ -1,10 +1,36 @@
 import { ShoppingCart } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/nextGenSlice";
 
 const AddToCartBtn = ({ product }) => {
+  const dispatch = useDispatch();
+
   const handleAddToCart = () => {
-    console.log("product", product);
+    if (product) {
+      if (existingProduct) {
+        toast.error(`${product.productName} is already in the cart`);
+      } else {
+        dispatch(addToCart(product));
+        toast.success(`${product.productName} added successfully`);
+      }
+    } else {
+      toast.error("Product not found");
+    }
   };
+
+  const selector = useSelector((state) => state.nextGen.cart);
+  const [existingProduct, setExistingProduct] = useState(null);
+  useEffect(() => {
+    if (product) {
+      const availableProduct = selector.find(
+        (item) => item._id === product._id
+      );
+      setExistingProduct(availableProduct);
+    }
+  }, [product, selector]);
+
   return (
     <div>
       <div className="bg-[#F35279] px-2 mb-2 mx-2 rounded-full">

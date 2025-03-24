@@ -22,7 +22,7 @@ const Header = () => {
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="shadow shadow-gray-400 p-2">
+    <div className="shadow shadow-gray-400 p-2 sticky top-0 z-50 bg-white">
       <Container className="flex items-center justify-between">
         {/* Logo */}
         <h1 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-wide text-[#F05077] hover:text-black duration-300">
