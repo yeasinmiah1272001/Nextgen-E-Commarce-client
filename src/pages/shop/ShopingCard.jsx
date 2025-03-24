@@ -1,11 +1,12 @@
 import React from "react";
 
 import { useState } from "react";
-import { ShoppingCart, Heart, ShoppingBag, Edit } from "lucide-react";
-import AddToCartBtn from "../../../components/button/AddToCartBtn";
-import { Link } from "react-router-dom";
+import { Heart, ShoppingBag, Edit } from "lucide-react";
 
-const ProductCard = ({ product }) => {
+import { Link } from "react-router-dom";
+import AddToCartBtn from "../../components/button/AddToCartBtn";
+
+const ShopingCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const discount = product.productPrice
@@ -15,7 +16,6 @@ const ProductCard = ({ product }) => {
           100
       )
     : 0;
-
   return (
     <div
       className="group relative  overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:shadow-emerald-950"
@@ -97,4 +97,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default ShopingCard;

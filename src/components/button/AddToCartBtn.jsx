@@ -1,7 +1,7 @@
 import { ShoppingCart } from "lucide-react";
 import React from "react";
 
-const AddToCartBtn = () => {
+const AddToCartBtn = ({ product }) => {
   return (
     <div>
       <div className="bg-[#F35279] px-2 mb-2 mx-2 rounded-full">
