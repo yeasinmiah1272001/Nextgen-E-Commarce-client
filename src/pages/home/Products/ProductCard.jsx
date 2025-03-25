@@ -8,14 +8,6 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const discount = product.productPrice
-    ? Math.round(
-        ((product.productPrice - product.discountedPersentage) /
-          product.productPrice) *
-          100
-      )
-    : 0;
-
   return (
     <div
       className="group relative  overflow-hidden rounded-lg border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-md hover:shadow-emerald-950"
@@ -38,11 +30,9 @@ const ProductCard = ({ product }) => {
             New
           </span>
 
-          {discount > 0 && (
-            <span className="inline-flex items-center rounded-full bg-red-500 px-2 py-0.5 text-xs font-medium text-white">
-              -{discount}%
-            </span>
-          )}
+          <span className="inline-flex items-center rounded-full bg-red-500 px-2 py-0.5 text-xs font-medium text-white">
+            {product.discountedPersentage} %
+          </span>
         </div>
 
         {/* Action Buttons - Slide in from right */}

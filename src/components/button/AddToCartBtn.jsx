@@ -48,6 +48,16 @@ const AddToCartBtn = ({ product }) => {
     }
   };
 
+  // price calculation
+  const calculateDiscount = (price, discount) => {
+    const discountAmount = (price * discount) / 100;
+    return discountAmount;
+  };
+  const price = product.productPrice;
+  const discount = product.discountedPersentage; // Discount percentage
+  const discountAmount = calculateDiscount(price, discount);
+  const runningPrice = (price - discountAmount).toFixed(2);
+
   return (
     <div className="p-2 rounded-lg shadow-sm bg-white">
       {existingProduct ? (
@@ -88,10 +98,26 @@ const AddToCartBtn = ({ product }) => {
 
       <div className="flex items-center justify-between">
         <p className="font-medium text-gray-600">Subtotal</p>
-        <div className="flex items-center gap-2">
-          <p className="font-semibold text-gray-800">678 $</p>
-          <p className="text-sm text-gray-500 line-through">890 $</p>
-        </div>
+        {existingProduct ? (
+          <>
+            {" "}
+            <div className="flex items-center gap-2">
+              <p className="font-semibold text-gray-500 line-through">
+                {price * existingProduct?.quantity} $
+              </p>
+              <p className="text-sm text-gray-800">
+                {runningPrice * existingProduct?.quantity} $
+              </p>
+            </div>
+          </>
+        ) : (
+          <div className="flex items-center gap-2">
+            <p className="font-semibold text-gray-500 line-through">
+              {price} $
+            </p>
+            <p className="text-sm text-gray-800">{runningPrice} $</p>
+          </div>
+        )}
       </div>
     </div>
   );
