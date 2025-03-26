@@ -2,10 +2,7 @@ import React from "react";
 import Container from "../components/Container";
 import { useSelector } from "react-redux";
 import Title from "../components/Title";
-import { FaTrashAlt } from "react-icons/fa";
-import { MdOutlineCategory } from "react-icons/md";
-import { AiOutlineTag } from "react-icons/ai";
-import { BsCurrencyDollar } from "react-icons/bs";
+
 import AddToCartBtn from "../components/button/AddToCartBtn";
 import CartSummary from "../components/CartSummary";
 
