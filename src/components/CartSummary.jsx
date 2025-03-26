@@ -1,7 +1,6 @@
 import React from "react";
-
+import toast from "react-hot-toast";
 const CartSummary = ({ cart }) => {
-  // Calculate subtotal, discount, and total dynamically
   const subtotal = cart.reduce(
     (sum, item) => sum + item.productPrice * item.quantity,
     0
@@ -18,6 +17,7 @@ const CartSummary = ({ cart }) => {
 
   const handlePayment = () => {
     console.log(total);
+    toast.success("payment pending");
   };
 
   return (

@@ -35,11 +35,22 @@ export const counterSlice = createSlice({
         existingProduct.quantity -= 1;
       }
     },
+    singleDelete: (state, action) => {
+      state.cart = state.cart.filter((item) => item._id !== action.payload);
+    },
+    reseetCart: (state) => {
+      state.cart = [];
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, incressQuantity, decressQuantity } =
-  counterSlice.actions;
+export const {
+  addToCart,
+  incressQuantity,
+  decressQuantity,
+  singleDelete,
+  reseetCart,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;

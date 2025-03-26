@@ -1,13 +1,17 @@
 import React from "react";
 import Container from "../components/Container";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Title from "../components/Title";
+import { AiFillDelete } from "react-icons/ai";
 
 import AddToCartBtn from "../components/button/AddToCartBtn";
 import CartSummary from "../components/CartSummary";
+import { singleDelete } from "../redux/nextGenSlice";
+import toast from "react-hot-toast";
 
 const ShoppingCarts = () => {
   const cart = useSelector((state) => state.nextGen.cart);
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -40,14 +44,23 @@ const ShoppingCarts = () => {
                       <p className="text-sm text-gray-600">
                         Status: {product.productStatus}
                       </p>
+                      <span className="mt-2 ">
+                        <AiFillDelete
+                          onClick={() =>
+                            dispatch(
+                              singleDelete(product._id),
+                              toast.success("Deleted Success")
+                            )
+                          }
+                          size={20}
+                          className="text-red-400 hover:text-red-700 duration-300 "
+                        />
+                      </span>
                     </div>
                   </div>
 
                   <div className="flex flex-col items-center">
                     <AddToCartBtn product={product} />
-                    {/* <button className="mt-3 text-red-500 hover:text-red-600 flex items-center gap-1">
-                  <FaTrashAlt /> Remove
-                </button> */}
                   </div>
                 </div>
               ))}
