@@ -24,7 +24,7 @@ const ShoppingCarts = () => {
             <div className="lg:col-span-2">
               {cart.map((product) => (
                 <div
-                  key={product.id}
+                  key={product._id}
                   className="flex items-center justify-between border border-gray-300 p-4 mb-4 rounded-lg shadow-sm"
                 >
                   <div className="flex items-center gap-4">

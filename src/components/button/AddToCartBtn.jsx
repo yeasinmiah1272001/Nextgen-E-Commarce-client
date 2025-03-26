@@ -56,7 +56,7 @@ const AddToCartBtn = ({ product }) => {
   const price = product.productPrice;
   const discount = product.discountedPersentage; // Discount percentage
   const discountAmount = calculateDiscount(price, discount);
-  const runningPrice = (price - discountAmount).toFixed(2);
+  const runningPrice = parseInt(price - discountAmount).toFixed(2);
 
   return (
     <div className="p-2 rounded-lg shadow-sm bg-white">
@@ -96,8 +96,8 @@ const AddToCartBtn = ({ product }) => {
 
       <hr className="my-4 border-gray-300" />
 
-      <div className="flex items-center justify-between">
-        <p className="font-medium text-gray-600">Subtotal</p>
+      <div className="flex items-center gap-2 justify-between">
+        <p className="font-medium text-gray-600">Price</p>
         {existingProduct ? (
           <>
             {" "}
