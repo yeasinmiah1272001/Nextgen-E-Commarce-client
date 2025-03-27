@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
+import PaymentModal from "./Modal/PaymentModal";
+
 const CartSummary = ({ cart }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const subtotal = cart.reduce(
     (sum, item) => sum + item.productPrice * item.quantity,
     0
@@ -13,11 +17,14 @@ const CartSummary = ({ cart }) => {
     0
   );
 
-  const total = subtotal - totalDiscount;
+  const totalPrice = subtotal - totalDiscount;
 
-  const handlePayment = () => {
-    console.log(total);
-    toast.success("payment pending");
+  const handleCheckoutClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -40,15 +47,23 @@ const CartSummary = ({ cart }) => {
 
       <div className="flex justify-between text-lg font-semibold text-gray-800 mt-6">
         <p>Total</p>
-        <p>${total.toFixed(2)}</p>
+        <p>${totalPrice.toFixed(2)}</p>
       </div>
 
-      <button
-        onClick={handlePayment}
-        className="w-full mt-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition-all"
+      <div
+        className="w-full mt-6 py-3 bg-black text-center text-white rounded-lg hover:bg-gray-800 transition-all cursor-pointer"
+        onClick={handleCheckoutClick}
       >
         Proceed to Checkout
-      </button>
+      </div>
+
+      {isModalOpen && (
+        <PaymentModal
+          closeModal={closeModal}
+          totalPrice={totalPrice}
+          cart={cart}
+        />
+      )}
     </div>
   );
 };

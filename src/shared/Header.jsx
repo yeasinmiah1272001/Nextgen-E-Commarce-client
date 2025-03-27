@@ -39,7 +39,7 @@ const Header = () => {
                 isPending
                   ? "pending"
                   : isActive
-                  ? "active text-[#F05077] border-b-2 border-[#F05077]"
+                  ? "active text-[#e60e44] border-b-2 border-[#F05077]"
                   : "text-gray-700 hover:text-[#F05077] transition duration-300"
               }
             >

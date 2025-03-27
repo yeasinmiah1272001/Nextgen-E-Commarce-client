@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 const NavIcon = () => {
   const { user } = useContext(AuthContext);
   const selector = useSelector((state) => state.nextGen.cart);
-  console.log(selector);
+  // console.log(selector);
 
   return (
     <div className="flex items-center gap-6">
