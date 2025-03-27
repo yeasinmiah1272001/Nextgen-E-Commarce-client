@@ -6,6 +6,11 @@ const UserMenu = () => {
   return (
     <div>
       <SideMenu address={"userhome"} title={"User Home"} icon={IoMenu} />
+      <SideMenu
+        address={"paymenthistry"}
+        title={"Payment Histry"}
+        icon={IoMenu}
+      />
       <SideMenu address={"vieworder"} title={"View Order"} icon={IoMenu} />
       <SideMenu address={"manageuser"} title={"Manage User"} icon={IoMenu} />
       <SideMenu address={"review"} title={"Review"} icon={IoMenu} />

@@ -4,7 +4,7 @@ import Payment from "../Payment";
 const PaymentModal = ({ closeModal, totalPrice, cart }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50  bg-opacity-50 backdrop-blur-sm">
-      <div className="bg-white w-11/12 max-w-md rounded-lg p-6 shadow-lg shadow-amber-500">
+      <div className="bg-white w-11/12 max-w-md rounded-lg p-6 shadow-lg shadow-black">
         <h3 className="text-lg font-semibold text-gray-800 mb-4">
           Checkout Confirmation
         </h3>
