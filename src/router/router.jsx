@@ -17,6 +17,7 @@ import AllProduct from "../pages/dashboard/admin/AllProduct";
 import ProductDetaiils from "../pages/home/ProductDetaiils";
 import ShoppingCarts from "../pages/ShoppingCarts";
 import PaymentHistry from "../pages/dashboard/users/PaymentHistry";
+import ViewOrder from "../pages/dashboard/users/ViewOrder";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
       {
         path: "paymenthistry",
         element: <PaymentHistry />,
+      },
+      {
+        path: "vieworder",
+        element: <ViewOrder />,
       },
     ],
   },
