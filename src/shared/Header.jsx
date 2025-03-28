@@ -8,8 +8,10 @@ import { AuthContext } from "../provider/AuthProvider";
 const Header = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleLogout = () => {
     logout();
+    navigate("/login");
   };
 
   const navlink = [

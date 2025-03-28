@@ -21,6 +21,7 @@ const NavIcon = () => {
       </div>
       <Link to={"/carts"} className="flex relative group cursor-pointer">
         <BsBag
+          title="View Carts"
           size={27}
           className="text-gray-700 group-hover:text-blue-500 transition duration-300"
         />
@@ -38,13 +39,17 @@ const NavIcon = () => {
         </span>
       </div>
       {user ? (
-        <div className="flex relative group cursor-pointer">
+        <Link
+          to={"/dashboard/profile"}
+          className="flex relative group cursor-pointer"
+        >
           <img
+            title="View Profile"
             src={user && user?.photoURL} // Fallback to default image
             alt="User Profile"
             className="w-8 h-8 rounded-full object-cover border border-gray-300"
           />
-        </div>
+        </Link>
       ) : (
         <Link to={"/login"} className="flex relative group cursor-pointer">
           <FaUser
