@@ -71,7 +71,7 @@ const ProductDetails = () => {
         </div>
       </div>
       {/* comment or review */}
-      <Review />
+      <Review product={product} />
     </Container>
   );
 };
