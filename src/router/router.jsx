@@ -18,6 +18,7 @@ import ProductDetaiils from "../pages/home/ProductDetaiils";
 import ShoppingCarts from "../pages/ShoppingCarts";
 import PaymentHistry from "../pages/dashboard/users/PaymentHistry";
 import ViewOrder from "../pages/dashboard/users/ViewOrder";
+import PrivateRoute from "./PrivateRoute";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -42,19 +43,31 @@ export const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        element: <ProductDetaiils />,
+        element: (
+          <PrivateRoute>
+            <ProductDetaiils />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/product/details/${params.id}`),
       },
       {
         path: "/carts",
-        element: <ShoppingCarts />,
+        element: (
+          <PrivateRoute>
+            <ShoppingCarts />
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "userhome",

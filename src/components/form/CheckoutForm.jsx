@@ -108,7 +108,7 @@ const CheckoutForm = ({ cart, totalPrice }) => {
           disabled={!stripe || !clientSecret}
           className="bg-blue-600 p-2 px-4 text-sm font-medium text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition-all"
         >
-          Pay <span className="ml-1">{totalPrice}$</span>
+          Pay <span className="ml-1">{totalPrice.toFixed(2)}$</span>
         </button>
       </div>
     </form>
