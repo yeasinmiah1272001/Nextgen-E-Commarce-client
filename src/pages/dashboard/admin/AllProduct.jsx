@@ -1,8 +1,20 @@
 import React from "react";
 import useProducts from "../../../hooks/useProducts";
-
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 const AllProduct = () => {
-  const [products] = useProducts();
+  const [products, isLoading, refetch] = useProducts();
+  const axiosSecure = useAxiosSecure();
+  const handleDelete = async (id) => {
+    const res = await axiosSecure.delete(`/product/delete/${id}`);
+    if (res.data.deletedCount > 0) {
+      console.log(res.data);
+      toast.success("Product Deleted success");
+      refetch();
+    }
+  };
+  if (isLoading) return <LoadingSpinner />;
 
   return (
     <div className="overflow-x-auto">
@@ -40,10 +52,13 @@ const AllProduct = () => {
                 {product.productCategory}
               </td>
               <td className="py-2 px-4 border-b">
-                <button className="text-white bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded text-sm sm:text-base">
+                {/* <button className="text-white bg-blue-500 hover:bg-blue-600 px-3 py-1 rounded text-sm sm:text-base">
                   Edit
-                </button>
-                <button className="ml-2 text-white bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm sm:text-base">
+                </button> */}
+                <button
+                  onClick={() => handleDelete(product._id)}
+                  className="ml-2 text-white bg-red-500 hover:bg-red-600 px-3 py-1 rounded text-sm sm:text-base"
+                >
                   Delete
                 </button>
               </td>
