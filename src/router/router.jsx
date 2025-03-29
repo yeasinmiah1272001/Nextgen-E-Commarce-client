@@ -19,6 +19,7 @@ import ShoppingCarts from "../pages/ShoppingCarts";
 import PaymentHistry from "../pages/dashboard/users/PaymentHistry";
 import ViewOrder from "../pages/dashboard/users/ViewOrder";
 import PrivateRoute from "./PrivateRoute";
+import BlogPage from "../pages/BlogPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
             <ShoppingCarts />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/blog",
+        element: <BlogPage />,
       },
     ],
   },
