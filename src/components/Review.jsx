@@ -45,30 +45,32 @@ const Review = ({ product }) => {
       <h2 className="text-lg font-semibold text-gray-900 mb-4">Your Review</h2>
 
       {/* Review Section */}
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-3">
-          {allReview.map((cmt, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-4 p-4 border border-gray-200 rounded-lg shadow-sm"
-            >
-              <div className="h-12 w-12 rounded-full bg-gray-300 overflow-hidden">
-                <img
-                  src={cmt?.image || "default-image-url"}
-                  alt={cmt?.name || "User"}
-                  className="h-full w-full object-cover"
-                />
+      {allReview && (
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
+            {allReview.map((cmt, index) => (
+              <div
+                key={index}
+                className="flex items-start gap-4 p-4 border border-gray-200 rounded-lg shadow-sm"
+              >
+                <div className="h-12 w-12 rounded-full bg-gray-300 overflow-hidden">
+                  <img
+                    src={cmt?.image || "default-image-url"}
+                    alt={cmt?.name || "User"}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-sm font-semibold text-gray-800">
+                    {cmt?.name || "Anonymous"}
+                  </span>
+                  <p className="text-sm text-gray-600 mt-1">{cmt?.review}</p>
+                </div>
               </div>
-              <div className="flex flex-col">
-                <span className="text-sm font-semibold text-gray-800">
-                  {cmt?.name || "Anonymous"}
-                </span>
-                <p className="text-sm text-gray-600 mt-1">{cmt?.review}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Submit Review Form */}
       <form onSubmit={handleReview} className="mt-6">

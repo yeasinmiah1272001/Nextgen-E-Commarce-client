@@ -6,6 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { reseetCart } from "../../redux/nextGenSlice";
+import toast from "react-hot-toast";
 
 const CheckoutForm = ({ cart, totalPrice }) => {
   const axiosSecure = useAxiosSecure();
@@ -72,6 +73,7 @@ const CheckoutForm = ({ cart, totalPrice }) => {
           console.log("Payment saved:", response.data);
           navigate("/dashboard/paymentHistry");
           dispatch(reseetCart(cart));
+          toast.success("payment success");
         })
         .catch((error) => console.error(error));
     }

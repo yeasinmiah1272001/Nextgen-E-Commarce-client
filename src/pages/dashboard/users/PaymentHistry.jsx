@@ -2,12 +2,21 @@ import React from "react";
 import Container from "../../../components/Container";
 import useCarts from "../../../hooks/useCarts";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const PaymentHistry = () => {
-  const [carts] = useCarts();
-  console.log("carts", carts);
-
-  const price = carts.reduce((sum, item) => sum + item.totalPrice, 0);
+  const [carts, refetch] = useCarts();
+  const axiosSecure = useAxiosSecure();
+  // const id = carts.map((item) => item._id);
+  const handleCancel = async (id) => {
+    const res = await axiosSecure.delete(`/order/cancel/${id}`);
+    if (res.data.deletedCount > 0) {
+      console.log(res.data);
+      toast.success("Order Cancel success");
+      refetch();
+    }
+  };
 
   return (
     <Container>
@@ -47,7 +56,10 @@ const PaymentHistry = () => {
                         ${cart.totalPrice}
                       </td>
                       <td className="border border-gray-300 px-4 py-2">
-                        <button className="px-4 py-1 text-white bg-blue-500 hover:bg-blue-600 rounded">
+                        <button
+                          onClick={() => handleCancel(cart._id)}
+                          className="px-4 py-1 text-white bg-blue-500 hover:bg-blue-600 rounded"
+                        >
                           Cancel
                         </button>
                       </td>
