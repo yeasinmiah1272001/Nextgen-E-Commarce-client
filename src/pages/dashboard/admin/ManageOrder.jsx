@@ -2,9 +2,20 @@ import React from "react";
 import useAllPayment from "../../../hooks/useAllPayment";
 import Container from "../../../components/Container";
 import { MdDelete } from "react-icons/md";
+import toast from "react-hot-toast";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageOrder = () => {
-  const [allPayment] = useAllPayment();
+  const [allPayment, refetch] = useAllPayment();
+  const axiosSecure = useAxiosSecure();
+  const handleDelete = async (id) => {
+    const res = await axiosSecure.delete(`/order/cancel/${id}`);
+    if (res.data.deletedCount > 0) {
+      console.log(res.data);
+      toast.success("Order Cancel success");
+      refetch();
+    }
+  };
 
   return (
     <Container>
@@ -32,6 +43,7 @@ const ManageOrder = () => {
                 <td className="px-4 py-2 border text-center items-center">
                   <span>
                     <MdDelete
+                      onClick={() => handleDelete(item._id)}
                       className="text-red-400 hover:text-red-500 duration-300"
                       size={27}
                     />
