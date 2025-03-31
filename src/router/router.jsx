@@ -20,6 +20,7 @@ import PaymentHistry from "../pages/dashboard/users/PaymentHistry";
 import ViewOrder from "../pages/dashboard/users/ViewOrder";
 import PrivateRoute from "./PrivateRoute";
 import BlogPage from "../pages/BlogPage";
+import HotDealsPage from "../pages/HotDealsPage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
       {
         path: "/blog",
         element: <BlogPage />,
+      },
+      {
+        path: "/hotdeals",
+        element: <HotDealsPage />,
       },
     ],
   },

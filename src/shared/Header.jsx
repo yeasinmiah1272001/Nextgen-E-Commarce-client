@@ -18,7 +18,7 @@ const Header = () => {
     { title: "Home", path: "/" },
     { title: "Shop", path: "/shop" },
     { title: "Blog", path: "/blog" },
-    { title: "Hot Deal", path: "/hotdeal" },
+    { title: "Hot Deal", path: "/hotdeals" },
   ];
 
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);

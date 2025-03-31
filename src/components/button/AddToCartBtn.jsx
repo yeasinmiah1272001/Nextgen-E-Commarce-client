@@ -87,7 +87,7 @@ const AddToCartBtn = ({ product }) => {
       ) : (
         <button
           onClick={handleAddToCart}
-          className="flex w-full items-center justify-center gap-1.5 rounded-md bg-[#F35279] py-2 text-sm font-medium text-white transition-all hover:bg-[#e0436b]"
+          className="flex w-full items-center justify-center gap-1.5 rounded-md bg-red-500 py-2 text-sm font-medium text-white transition-all hover:bg-red-600"
         >
           <ShoppingCart className="h-4 w-4" />
           Add to Cart

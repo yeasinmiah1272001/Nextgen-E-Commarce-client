@@ -9,7 +9,7 @@ const SideMenu = ({ address, title, icon: Icon }) => {
           <NavLink
             to={address}
             className={({ isActive }) =>
-              `flex items-center gap-3 py-3 px-5 rounded-lg transition-all duration-200 text-lg font-medium hover:bg-gray-700 hover:text-white ${
+              `flex items-center gap-3 py-2 px-5 rounded-lg transition-all duration-200 text-lg font-medium hover:bg-gray-700 hover:text-white ${
                 isActive ? "bg-gray-700 text-white" : "text-gray-400"
               }`
             }
