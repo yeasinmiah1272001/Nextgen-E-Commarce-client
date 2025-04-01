@@ -7,6 +7,7 @@ import Brand from "../../components/Brand";
 import NewsletterSection from "../../components/NewsletterSection";
 import Promotion from "../../components/Promotion";
 import WatchPromotion from "../../components/WatchPromotion";
+import NewArrivals from "./NewArrivals";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ServicesTag />
       <Products />
       <Promotion />
+      <NewArrivals />
       <Brand />
       <WatchPromotion />
       <NewsletterSection />

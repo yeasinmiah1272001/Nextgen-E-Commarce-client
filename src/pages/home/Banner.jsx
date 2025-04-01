@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import banner1 from "../../assets/banner/banner1.png";
 import banner2 from "../../assets/banner/banner2.jpg";
-import banner3 from "../../assets/banner/banner3.jpg";
-import banner from "../../assets/banner/banner.jpg";
+import banner3 from "../../assets/newArrival/3.jpg";
+import banner from "../../assets/newArrival/2.jpg";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
