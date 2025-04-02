@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
       status: "veryfied",
     };
     const { data } = await axios.put(
-      "http://localhost:5000/users",
+      "https://next-gen-ecommarce-server.vercel.app/users",
       currentUser
     );
     // console.log("data", data);
@@ -64,7 +64,10 @@ const AuthProvider = ({ children }) => {
   // token genarate
   const getToken = async (user) => {
     const email = user?.email;
-    const { data } = await axios.post("http://localhost:5000/jwt", email);
+    const { data } = await axios.post(
+      "https://next-gen-ecommarce-server.vercel.app/jwt",
+      email
+    );
     if (data.token) {
       console.log("token", data.token);
       localStorage.setItem("token", data.token);

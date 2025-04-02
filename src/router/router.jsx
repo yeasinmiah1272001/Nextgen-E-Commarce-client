@@ -53,7 +53,9 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/product/details/${params.id}`),
+          fetch(
+            `https://next-gen-ecommarce-server.vercel.app/product/details/${params.id}`
+          ),
       },
       {
         path: "/carts",

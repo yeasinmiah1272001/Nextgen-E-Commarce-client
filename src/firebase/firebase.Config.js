@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBpbEUgYP8g0Piw6VLH3zVYy40G-Ga5i-4",
-  authDomain: "nextgen-ecommarce.firebaseapp.com",
-  projectId: "nextgen-ecommarce",
-  storageBucket: "nextgen-ecommarce.firebasestorage.app",
-  messagingSenderId: "300707921846",
-  appId: "1:300707921846:web:0f797d59c4fb5ebe814b17",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKE,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
