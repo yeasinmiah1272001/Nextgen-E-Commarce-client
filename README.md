@@ -19,7 +19,7 @@ NextGen E-Commerce is a modern and fully functional eCommerce platform built wit
 
 ## 📜 Admin Credentials
 
-- **Email**: rajib@gmail.com
+- **Email**: yeasinmiah@gmail.com
 - **Password**: 11111
 
 ## 🛠 Tech Stack
@@ -58,4 +58,4 @@ For any queries, reach out at **yeasinmiah1272001@gmail.com**.
 
 ---
 
-Made with ❤️ by Rajib
+Made with ❤️ by yeasin
