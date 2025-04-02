@@ -25,7 +25,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white shadow-md">
       {/* Top Bar */}
       <Container className="container mx-auto flex items-center justify-between">
         {/* Logo */}
