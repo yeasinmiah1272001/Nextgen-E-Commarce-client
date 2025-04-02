@@ -15,6 +15,12 @@ NextGen E-Commerce is a modern and fully functional eCommerce platform built wit
 - 📦 **Order Management**: Track placed orders (Admin & User views)
 - 🔍 **Search & Filter**: Find products easily
 - 📱 **Responsive Design**: Fully optimized for mobile & desktop
+- 📊 **User & Admin Dashboards**: Separate dashboards for users and admins with role-based access
+
+## 📜 Admin Credentials
+
+- **Email**: rajib@gmail.com
+- **Password**: 11111
 
 ## 🛠 Tech Stack
 
@@ -45,11 +51,6 @@ NextGen E-Commerce is a modern and fully functional eCommerce platform built wit
    ```sh
    npm start
    ```
-
-## 📜 Admin Credentials
-
-- **Email**: rajib@gmail.com
-- **Password**: 111111
 
 ## 📧 Contact
 
