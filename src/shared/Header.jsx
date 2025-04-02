@@ -4,6 +4,7 @@ import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import Container from "../components/Container";
 import { AuthContext } from "../provider/AuthProvider";
 import NavIcon from "../components/NavIcon";
+import SearchHeader from "./SearchHeader";
 
 const navItems = [
   { title: "Home", path: "/" },
@@ -35,14 +36,7 @@ const Header = () => {
         </NavLink>
 
         {/* Search Bar (Hidden on small screens) */}
-        <div className="relative hidden md:block w-1/3">
-          <input
-            type="text"
-            placeholder="Search product..."
-            className="w-full px-4 py-2 text-gray-700 border rounded-md focus:outline-none focus:ring focus:ring-yellow-400"
-          />
-          <FaSearch className="absolute right-3 top-3 text-gray-500" />
-        </div>
+        <SearchHeader />
 
         {/* Icons & Mobile Menu Button */}
         <div className="flex items-center space-x-4 text-gray-700">
@@ -89,6 +83,15 @@ const Header = () => {
               {title}
             </NavLink>
           ))}
+          <div>
+            {user ? (
+              <p className="cursor-pointer" onClick={handleLogout}>
+                Logout
+              </p>
+            ) : (
+              <p>Login</p>
+            )}
+          </div>
         </div>
       </nav>
     </header>
