@@ -11,7 +11,7 @@ NextGen E-Commerce is a modern and fully functional eCommerce platform built wit
 - 🔐 **Authentication**: Firebase authentication (Login/Signup with email & password)
 - 🛍 **Product Management**: View, add, update, and delete products (Admin only)
 - 🛒 **Shopping Cart**: Add, remove, and update products in the cart using Redux
-- 💳 **Payment Integration**: (Future implementation)
+- 💳 **Payment Integration**: (stripe implementation)
 - 📦 **Order Management**: Track placed orders (Admin & User views)
 - 🔍 **Search & Filter**: Find products easily
 - 📱 **Responsive Design**: Fully optimized for mobile & desktop
