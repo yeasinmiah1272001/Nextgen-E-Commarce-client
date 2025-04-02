@@ -54,7 +54,7 @@ NextGen E-Commerce is a modern and fully functional eCommerce platform built wit
 
 ## 📧 Contact
 
-For any queries, reach out at **rajib@gmail.com**.
+For any queries, reach out at **yeasinmiah1272001@gmail.com**.
 
 ---
 
