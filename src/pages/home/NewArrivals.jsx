@@ -4,6 +4,7 @@ import Container from "../../components/Container";
 import img1 from "../../assets/newArrival/11.jpg";
 import img2 from "../../assets/newArrival/2.jpg";
 import img3 from "../../assets/newArrival/3.jpg";
+import { Link } from "react-router-dom";
 
 const NewArrivals = () => {
   return (
@@ -21,9 +22,12 @@ const NewArrivals = () => {
             <h1 className="text-white text-2xl font-bold mb-3 text-left w-1/2">
               10% sales ongoing phone Offers on limited time
             </h1>
-            <button className="bg-white text-black py-2 px-4 rounded hover:bg-gray-800 hover:text-white duration-300">
-              Shop Now
-            </button>
+            <Link to={"/shop"}>
+              {" "}
+              <button className="bg-gray-400 text-black py-2 px-4 rounded hover:bg-gray-500 hover:text-white duration-300">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -40,9 +44,12 @@ const NewArrivals = () => {
                 10% sales ongoing on phone <br /> Offers on limited time
               </p>
             </h1>
-            <button className="bg-white text-black py-2 px-4 rounded hover:bg-gray-800 hover:text-white duration-300">
-              View More
-            </button>
+            <Link to={"/shop"}>
+              {" "}
+              <button className="bg-gray-400 text-black py-2 px-4 rounded hover:bg-gray-500 hover:text-white duration-300">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -59,9 +66,12 @@ const NewArrivals = () => {
                 10% sales ongoing on phone <br /> Offers on limited time
               </p>
             </h1>
-            <button className="bg-white text-black py-2 px-4 rounded hover:bg-gray-800 hover:text-white duration-300">
-              Shop Now
-            </button>
+            <Link to={"/shop"}>
+              {" "}
+              <button className="bg-gray-400 text-black py-2 px-4 rounded hover:bg-gray-500 hover:text-white duration-300">
+                Shop Now
+              </button>
+            </Link>
           </div>
         </div>
       </div>

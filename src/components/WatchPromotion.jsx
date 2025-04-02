@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "./Container";
 import img from "../assets/ba.png";
+import { Link } from "react-router-dom";
 
 const WatchPromotion = () => {
   return (
@@ -17,13 +18,16 @@ const WatchPromotion = () => {
               Molestias, blanditiis harum doloremque delectus expedita nesciunt
               dolore consectetur? Labore, soluta aperiam?
             </p>
-            <button
-              type="submit"
-              className="w-1/2 px-4 py-3 bg-pink-500 text-white font-medium rounded-md hover:bg-pink-600"
-            >
-              Buy Now
-              <span className="ml-2">→</span>
-            </button>
+            <Link to={"/shop"}>
+              {" "}
+              <button
+                type="submit"
+                className="w-1/2 px-4 py-3 bg-red-500 text-white font-medium rounded-md hover:bg-pink-600"
+              >
+                Buy Now
+                <span className="ml-2">→</span>
+              </button>
+            </Link>
           </div>
           <div className="w-full md:w-1/2">
             <img src={img} alt="Smart Watch" className=" w-full h-96" />

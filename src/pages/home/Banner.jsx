@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 import Container from "../../components/Container";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   const sliderRef = useRef(null);
@@ -63,9 +64,12 @@ const Banner = () => {
                   <p className="text-xs md:text-sm lg:text-lg">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   </p>
-                  <button className="bg-gray-100 text-gray-800 py-1 px-3 md:py-2 md:px-4 rounded-lg hover:bg-gray-200 transition">
-                    Order Now
-                  </button>
+                  <Link to={"/shop"}>
+                    {" "}
+                    <button className=" border border-gray-500 bg-transparent duration-500 text-gray-800 py-1 px-3 md:py-2 md:px-4 rounded-lg hover:bg-gray-700 hover:text-white transition">
+                      Order Now
+                    </button>
+                  </Link>
                 </div>
               </Container>
             </div>
