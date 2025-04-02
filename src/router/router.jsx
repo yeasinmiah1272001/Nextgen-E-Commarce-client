@@ -21,6 +21,8 @@ import ViewOrder from "../pages/dashboard/users/ViewOrder";
 import PrivateRoute from "./PrivateRoute";
 import BlogPage from "../pages/BlogPage";
 import HotDealsPage from "../pages/HotDealsPage";
+import Contact from "../pages/Contact";
+import About from "../pages/About";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +70,14 @@ export const router = createBrowserRouter([
       {
         path: "/hotdeals",
         element: <HotDealsPage />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
