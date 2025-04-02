@@ -1,12 +1,21 @@
 import React, { useContext, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import Container from "../components/Container";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi";
-import NavIcon from "../components/NavIcon";
 import { AuthContext } from "../provider/AuthProvider";
+import NavIcon from "../components/NavIcon";
+
+const navItems = [
+  { title: "Home", path: "/" },
+  { title: "Shop", path: "/shop" },
+  { title: "Blog", path: "/blog" },
+  { title: "Hot Deal", path: "/hotdeals" },
+  { title: "Contact", path: "/contact" },
+  { title: "About", path: "/about" },
+];
 
 const Header = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -14,93 +23,75 @@ const Header = () => {
     navigate("/login");
   };
 
-  const navlink = [
-    { title: "Home", path: "/" },
-    { title: "Shop", path: "/shop" },
-    { title: "Blog", path: "/blog" },
-    { title: "Hot Deal", path: "/hotdeals" },
-  ];
-
-  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-
   return (
-    <div className="shadow shadow-gray-400 p-2 sticky top-0 z-50 bg-white">
-      <Container className="flex items-center justify-between">
+    <header className="bg-white shadow-md sticky top-0 z-50">
+      {/* Top Bar */}
+      <Container className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <h1 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-wide text-[#F05077] hover:text-black duration-300">
-          <span className="text-black hover:text-[#F05077]">Next</span>Gen
-        </h1>
+        <NavLink to="/" className="text-lg font-bold text-gray-900">
+          <h1 className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-wide text-[#F05077] hover:text-black duration-300">
+            <span className="text-black hover:text-[#F05077]">Next</span>Gen
+          </h1>
+        </NavLink>
 
-        {/* Navigation Links for Large Screens */}
-        <div className="hidden sm:flex items-center justify-center gap-4 md:gap-8">
-          {navlink.map((nav, index) => (
-            <NavLink
-              key={index}
-              to={nav.path}
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending"
-                  : isActive
-                  ? "active text-[#e60e44] border-b-2 border-[#F05077]"
-                  : "text-gray-700 hover:text-[#F05077] transition duration-300"
-              }
-            >
-              {nav.title}
-            </NavLink>
-          ))}
-          {user ? (
-            <>
-              <button className="cursor-pointer" onClick={handleLogout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to={"/login"}>Login</Link>
-            </>
-          )}
+        {/* Search Bar (Hidden on small screens) */}
+        <div className="relative hidden md:block w-1/3">
+          <input
+            type="text"
+            placeholder="Search product..."
+            className="w-full px-4 py-2 text-gray-700 border rounded-md focus:outline-none focus:ring focus:ring-yellow-400"
+          />
+          <FaSearch className="absolute right-3 top-3 text-gray-500" />
         </div>
-        {/* icon */}
-        <NavIcon />
 
-        {/* Menu Icon for Small Devices */}
-        <button
-          onClick={toggleSidebar}
-          className="sm:hidden text-2xl text-[#F05077] hover:text-black"
-        >
-          {isSidebarOpen ? <FiX /> : <FiMenu />}
-        </button>
+        {/* Icons & Mobile Menu Button */}
+        <div className="flex items-center space-x-4 text-gray-700">
+          <NavIcon />
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-xl"
+          >
+            {isMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
       </Container>
 
-      {/* Sidebar for Small Devices */}
-      <div
-        className={`fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 z-50`}
-      >
-        <div className="p-4">
-          <h2 className="text-xl font-bold mb-4">Menu</h2>
-          {navlink.map((nav, index) => (
-            <NavLink
-              key={index}
-              to={nav.path}
-              onClick={toggleSidebar}
-              className="block py-2 px-4 hover:bg-gray-700 rounded"
-            >
-              {nav.title}
-            </NavLink>
-          ))}
+      {/* Search Bar (Visible only on small screens) */}
+      <div className="md:hidden px-4 pb-2">
+        <div className="relative">
+          <input
+            type="text"
+            placeholder="Search product..."
+            className="w-full px-4 py-2 text-gray-700 border rounded-md focus:outline-none focus:ring focus:ring-yellow-400"
+          />
+          <FaSearch className="absolute right-3 top-3 text-gray-500" />
         </div>
       </div>
 
-      {/* Overlay for Sidebar */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-opacity-50 z-40"
-          onClick={toggleSidebar}
-        ></div>
-      )}
-    </div>
+      {/* Navigation Links */}
+      <nav
+        className={`bg-gray-100 md:block ${
+          isMenuOpen ? "block" : "hidden"
+        } transition-all duration-300`}
+      >
+        <div className="container mx-auto flex flex-col md:flex-row justify-center space-y-3 md:space-y-0 md:space-x-10 py-3">
+          {navItems.map(({ title, path }, index) => (
+            <NavLink
+              key={index}
+              to={path}
+              className={({ isActive }) =>
+                `text-sm font-medium hover:text-yellow-500 transition ${
+                  isActive ? "text-yellow-500" : "text-gray-800"
+                }`
+              }
+            >
+              {title}
+            </NavLink>
+          ))}
+        </div>
+      </nav>
+    </header>
   );
 };
 

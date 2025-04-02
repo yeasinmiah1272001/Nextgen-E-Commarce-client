@@ -13,12 +13,6 @@ const NavIcon = () => {
 
   return (
     <div className="flex items-center gap-6">
-      <div className="flex relative group cursor-pointer">
-        <IoIosSearch
-          size={27}
-          className="text-gray-700 group-hover:text-blue-500 transition duration-300"
-        />
-      </div>
       <Link to={"/carts"} className="flex relative group cursor-pointer">
         <BsBag
           title="View Carts"
